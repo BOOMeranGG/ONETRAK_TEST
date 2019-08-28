@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/whitesh">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lite_gray"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="@dimen/standard_edge_indent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        android:text="15.02.2017"/>
+
+    <TextView
+        android:id="@+id/tv_count_of_steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="@dimen/standard_edge_indent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:text="2570 / 4000 steps"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/test_progress_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_date"
+        android:layout_marginStart="@dimen/standard_edge_indent"
+        android:layout_marginEnd="@dimen/standard_edge_indent"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_walk_count"
+        style="@style/tv_step_count"
+        app:layout_constraintTop_toBottomOf="@id/progress_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_aerobic_count"
+        android:layout_marginTop="15dp"
+        android:text="630"/>
+
+    <TextView
+        android:id="@+id/tv_aerobic_count"
+        style="@style/tv_step_count"
+        app:layout_constraintTop_toTopOf="@id/tv_walk_count"
+        app:layout_constraintStart_toEndOf="@id/tv_walk_count"
+        app:layout_constraintEnd_toEndOf="@id/tv_run_count"
+        android:text="440"/>
+
+    <TextView
+        android:id="@+id/tv_run_count"
+        style="@style/tv_step_count"
+        app:layout_constraintTop_toTopOf="@id/tv_walk_count"
+        app:layout_constraintStart_toStartOf="@id/tv_aerobic_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="1500"/>
+
+    <TextView
+        android:id="@+id/tv_walk"
+        style="@style/tv_step_info_name"
+        app:layout_constraintStart_toStartOf="@id/tv_walk_count"
+        app:layout_constraintEnd_toEndOf="@id/tv_walk_count"
+        app:layout_constraintTop_toBottomOf="@id/tv_walk_count"
+        android:text="@string/walk"/>
+
+    <TextView
+        android:id="@+id/tv_aerobic"
+        style="@style/tv_step_info_name"
+        app:layout_constraintStart_toStartOf="@id/tv_aerobic_count"
+        app:layout_constraintEnd_toEndOf="@id/tv_aerobic_count"
+        app:layout_constraintTop_toBottomOf="@id/tv_aerobic_count"
+        android:text="@string/aerobic"/>
+
+    <TextView
+        android:id="@+id/tv_run"
+        style="@style/tv_step_info_name"
+        app:layout_constraintStart_toStartOf="@id/tv_run_count"
+        app:layout_constraintEnd_toEndOf="@id/tv_run_count"
+        app:layout_constraintTop_toBottomOf="@id/tv_run_count"
+        android:text="@string/run"/>
+
+    <View
+        android:id="@+id/bottom_separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lite_gray"
+        android:layout_marginTop="@dimen/standard_separator_indent"
+        app:layout_constraintTop_toBottomOf="@id/tv_walk"/>
+
+</android.support.constraint.ConstraintLayout>
