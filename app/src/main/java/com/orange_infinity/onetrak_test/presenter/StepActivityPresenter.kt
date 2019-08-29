@@ -8,7 +8,6 @@ import com.orange_infinity.onetrak_test.entities.Step
 import com.orange_infinity.onetrak_test.getDateFromTimeMilli
 import kotlinx.android.synthetic.main.list_step.view.*
 import android.widget.LinearLayout
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.orange_infinity.onetrak_test.convertToPx
 
 private const val DATE_FORMAT = "dd.MM.yyyy"
@@ -25,12 +24,12 @@ class StepActivityPresenter {
         stepsGoal = goalPreferences.getGoalSteps(stepView.context)
 
         setStepsTextView(stepView, step)
-        checkGoalComplete(stepView, step)
+        checkIsGoalReached(stepView, step)
         setProgressBar(stepView, step)
         setDate(stepView, step)
     }
 
-    private fun checkGoalComplete(stepView: View, step: Step) {
+    private fun checkIsGoalReached(stepView: View, step: Step) {
         val achievedSteps = step.walk + step.aerobic + step.run
         if (achievedSteps < stepsGoal) {
             stepView.layout_goal_reached.visibility = View.GONE

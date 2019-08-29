@@ -3,6 +3,7 @@ package com.orange_infinity.onetrak_test.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -34,8 +35,7 @@ class StepActivity : AppCompatActivity(), StepNetworkListener, NumberPickerFragm
         setUpRecycler()
 
         img_set_goal.setOnClickListener {
-            val dialog = NumberPickerFragment(this)
-            dialog.show(supportFragmentManager, DIALOG_TAG)
+            startDialog()
         }
     }
 
@@ -61,6 +61,11 @@ class StepActivity : AppCompatActivity(), StepNetworkListener, NumberPickerFragm
         updateUi()
     }
 
+    private fun startDialog() {
+        val dialog = NumberPickerFragment(this)
+        dialog.show(supportFragmentManager, DIALOG_TAG)
+    }
+
     private fun setUpRecycler() {
         stepAdapter = StepAdapter(stepList)
         stepRecyclerView = findViewById(R.id.layout_step_container)
@@ -73,7 +78,8 @@ class StepActivity : AppCompatActivity(), StepNetworkListener, NumberPickerFragm
         stepAdapter.notifyDataSetChanged()
     }
 
-    private inner class StepHolder(val stepView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(stepView) {
+    private inner class StepHolder(val stepView: View) :
+        androidx.recyclerview.widget.RecyclerView.ViewHolder(stepView) {
 
         fun bindStep(step: Step) {
             if (adapterPosition == 0) {
@@ -89,7 +95,8 @@ class StepActivity : AppCompatActivity(), StepNetworkListener, NumberPickerFragm
         }
     }
 
-    private inner class StepAdapter(private var stepList: List<Step>) : androidx.recyclerview.widget.RecyclerView.Adapter<StepHolder>() {
+    private inner class StepAdapter(private var stepList: List<Step>) :
+        androidx.recyclerview.widget.RecyclerView.Adapter<StepHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StepHolder {
             val layoutInflater = LayoutInflater.from(this@StepActivity)
