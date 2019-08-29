@@ -9,7 +9,7 @@
         android:id="@+id/tv_goal_reached"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textColor="@color/blue"
         android:text="@string/goal_reached"
         android:layout_marginTop="15dp"

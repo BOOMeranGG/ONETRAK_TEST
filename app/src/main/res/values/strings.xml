@@ -4,5 +4,6 @@
     <string name="run">run</string>
     <string name="aerobic">aerobic</string>
     <string name="walk">walk</string>
-    <string name="steps">STEPS</string>
+    <string name="steps">steps</string>
+    <string name="step_name">STEPS</string>
 </resources>
