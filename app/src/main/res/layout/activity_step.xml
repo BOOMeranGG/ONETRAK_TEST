@@ -54,11 +54,25 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/layout_step_container"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <ImageView
+            android:id="@+id/img_load"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/onetrack_logo"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/layout_step_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </FrameLayout>
+
 
 </LinearLayout>

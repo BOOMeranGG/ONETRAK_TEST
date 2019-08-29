@@ -39,24 +39,51 @@
         android:textStyle="italic"
         android:text="2570 / 4000 steps"/>
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
+    <LinearLayout
+        android:id="@+id/progress_bar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:indeterminate="false"
-        android:progressDrawable="@drawable/test_progress_bar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_date"
-        android:layout_marginStart="@dimen/standard_edge_indent"
-        android:layout_marginEnd="@dimen/standard_edge_indent"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progress_bar_walk"
+            android:layout_height="10dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_marginEnd="1dp"
+            android:progressDrawable="@drawable/walk_progress_bar"
+            android:layout_marginStart="@dimen/standard_edge_indent"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar_aerobic"
+            android:layout_height="10dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:progressDrawable="@drawable/aerobic_progress_bar"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar_run"
+            android:layout_height="10dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_marginStart="1dp"
+            android:progressDrawable="@drawable/run_progress_bar"
+            android:layout_marginEnd="@dimen/standard_edge_indent"/>
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tv_walk_count"
         style="@style/tv_step_count"
-        app:layout_constraintTop_toBottomOf="@id/progress_bar"
+        app:layout_constraintTop_toBottomOf="@id/progress_bar_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_aerobic_count"
         android:layout_marginTop="15dp"
@@ -89,6 +116,7 @@
     <TextView
         android:id="@+id/tv_aerobic"
         style="@style/tv_step_info_name"
+
         app:layout_constraintStart_toStartOf="@id/tv_aerobic_count"
         app:layout_constraintEnd_toEndOf="@id/tv_aerobic_count"
         app:layout_constraintTop_toBottomOf="@id/tv_aerobic_count"
@@ -131,8 +159,8 @@
         </FrameLayout>
 
         <include layout="@layout/layout_goal_reached"
-            android:id="@+id/layout_goal_reached"
-            android:visibility="visible"/>
+                 android:id="@+id/layout_goal_reached"
+                 android:visibility="visible"/>
 
     </LinearLayout>
 

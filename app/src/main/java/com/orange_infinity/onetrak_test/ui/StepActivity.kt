@@ -2,7 +2,6 @@ package com.orange_infinity.onetrak_test.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,8 @@ import com.orange_infinity.onetrak_test.presenter.StepActivityPresenter
 import com.orange_infinity.onetrak_test.use_case.StepHandler
 import com.orange_infinity.onetrak_test.use_case.StepNetworkListener
 import kotlinx.android.synthetic.main.activity_step.*
+import android.view.animation.AnimationUtils
+import android.view.animation.Animation
 
 private const val DIALOG_TAG = "dialog_tag"
 
@@ -40,7 +41,20 @@ class StepActivity : AppCompatActivity(), StepNetworkListener, NumberPickerFragm
 
     override fun onCompleteStepNetwork(stepList: List<Step>) {
         this.stepList = stepList
-        updateUi()
+        val fadeAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_animation)
+        img_load.startAnimation(fadeAnimation)
+        fadeAnimation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation) {}
+
+            override fun onAnimationEnd(animation: Animation) {
+                layout_step_container.visibility = View.VISIBLE
+                val appearAnimation = AnimationUtils.loadAnimation(this@StepActivity, R.anim.appear_animation)
+                layout_step_container.startAnimation(appearAnimation)
+                updateUi()
+            }
+
+            override fun onAnimationRepeat(animation: Animation) {}
+        })
     }
 
     override fun goalUpdated() {
