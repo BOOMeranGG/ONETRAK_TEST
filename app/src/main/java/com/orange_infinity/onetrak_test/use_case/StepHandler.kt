@@ -1,18 +1,17 @@
 package com.orange_infinity.onetrak_test.use_case
 
 import android.util.Log
+import com.orange_infinity.onetrak_test.TAG
 import com.orange_infinity.onetrak_test.data_layer.web.StepNetworkService
 import com.orange_infinity.onetrak_test.entities.Step
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.ref.WeakReference
-
-private const val TAG = "NetworkTag"
 
 class StepHandler {
 
     fun setSteps(listener: StepNetworkListener) {
+        Log.i(TAG, "Start work with network to create stepList")
         StepNetworkService.getInstance()
             .getJsonApi()
             .getPost()

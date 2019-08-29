@@ -3,19 +3,22 @@ package com.orange_infinity.onetrak_test.presenter
 import android.annotation.SuppressLint
 import android.view.View
 import com.orange_infinity.onetrak_test.R
+import com.orange_infinity.onetrak_test.data_layer.GoalPreferences
 import com.orange_infinity.onetrak_test.entities.Step
 import com.orange_infinity.onetrak_test.getDateFromTimeMilli
 import kotlinx.android.synthetic.main.list_step.view.*
 
-private const val STANDARD_STEPS_GOAL = 4000
 private const val DATE_FORMAT = "dd.MM.yyyy"
 
 class StepActivityPresenter {
 
-    private var stepsGoal = 4000
+    private var stepsGoal = 0
+    private lateinit var goalPreferences: GoalPreferences
 
     fun initStepView(stepView: View, step: Step) {
-        setGoal()
+        goalPreferences = GoalPreferences()
+        stepsGoal = goalPreferences.getGoalSteps(stepView.context)
+
         setStepsTextView(stepView, step)
         checkGoalComplete(stepView, step)
         setDate(stepView, step)
@@ -26,6 +29,7 @@ class StepActivityPresenter {
         if (achievedSteps < stepsGoal) {
             stepView.layout_goal_reached.visibility = View.GONE
         } else {
+            stepView.layout_goal_reached.visibility = View.VISIBLE
             stepView.bottom_separator.visibility = View.GONE
         }
     }
@@ -41,8 +45,5 @@ class StepActivityPresenter {
 
     private fun setDate(stepView: View, step: Step) {
         stepView.tv_date.text = getDateFromTimeMilli(step.dateMilliseconds, DATE_FORMAT)
-    }
-
-    private fun setGoal() {
     }
 }

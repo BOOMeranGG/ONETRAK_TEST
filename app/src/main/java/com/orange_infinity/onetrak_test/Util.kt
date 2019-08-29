@@ -5,6 +5,8 @@ import android.util.TypedValue
 import java.text.SimpleDateFormat
 import java.util.*
 
+const val TAG = "MAIN_LOGGER_TAG"
+
 fun convertToPx(dp: Int, resources: Resources): Int {
     val dm = resources.displayMetrics
     return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), dm).toInt()

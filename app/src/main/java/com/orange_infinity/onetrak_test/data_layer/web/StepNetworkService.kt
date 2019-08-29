@@ -1,5 +1,7 @@
 package com.orange_infinity.onetrak_test.data_layer.web
 
+import android.util.Log
+import com.orange_infinity.onetrak_test.TAG
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -26,6 +28,7 @@ class StepNetworkService private constructor() {
         private val instance: StepNetworkService? = null
 
         fun getInstance(): StepNetworkService {
+            Log.i(TAG, "StepNetworkService getting instance")
             return instance ?: StepNetworkService()
         }
     }

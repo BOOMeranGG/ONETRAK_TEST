@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/numberPicker1"
+        style="@style/number_picker_style"
+        app:np_max="9"
+        app:np_min="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/numberPicker2"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/numberPicker2"
+        style="@style/number_picker_style"
+        app:np_max="9"
+        app:np_min="0"
+        app:layout_constraintStart_toEndOf="@id/numberPicker1"
+        app:layout_constraintTop_toTopOf="@id/numberPicker1"
+        app:layout_constraintEnd_toStartOf="@id/numberPicker3"/>
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/numberPicker3"
+        style="@style/number_picker_style"
+        app:np_max="9"
+        app:np_min="0"
+        app:layout_constraintStart_toEndOf="@id/numberPicker2"
+        app:layout_constraintEnd_toStartOf="@id/numberPicker4"
+        app:layout_constraintTop_toTopOf="@id/numberPicker1"/>
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/numberPicker4"
+        style="@style/number_picker_style"
+        app:np_max="9"
+        app:np_min="0"
+        app:layout_constraintStart_toEndOf="@id/numberPicker3"
+        app:layout_constraintEnd_toStartOf="@id/numberPicker5"
+        app:layout_constraintTop_toTopOf="@id/numberPicker1"/>
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/numberPicker5"
+        style="@style/number_picker_style"
+        app:np_max="9"
+        app:np_min="0"
+        app:layout_constraintStart_toEndOf="@id/numberPicker4"
+        app:layout_constraintTop_toTopOf="@id/numberPicker1"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
